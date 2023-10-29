@@ -10,12 +10,60 @@
 }
 
 body {
-height: 100vh;
-
+    height: 100vh;
     display: grid;
-    grid-template-rows: 5% 80% 10% 5%;
+    grid-template-rows: 8% 79% 8% 5%;
 }
 
 body > * {
+    padding: 10px;
     border: 1px solid;
+}
+
+.small-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    align-items: center;
+}
+
+.iucludeItems,.addItem {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addItem {
+    gap: 10px;
+    outline: none;
+    border: 1px solid;
+    background-color: #1B4E8A;
+    color: white;
+}
+.addItem .small-icon {
+    height: 25px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer .small-icon:hover {
+    cursor: pointer;
+    transition: 0.4s;
+    rotate: 360deg;
+}
+
+.bookCount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
