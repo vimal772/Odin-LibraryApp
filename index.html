@@ -8,8 +8,9 @@
 </head>
 <body>
     <div class="header">
-        <img class="small-icon" src="./images/books.png">
+        <img class="small-icon" src="./images/books.png" alt="books">
         <h1>LIBRARAY APP</h1>
+        <img class="small-icon" src="./images/profile.png" alt="profile">
     </div>
     <div class="main"></div>
     <div class="iucludeItems">
@@ -25,6 +26,38 @@
         <a href="http://"><img class="small-icon" src="./images/github.png" alt="git-hub"></a>
         <p>2023 @vimal. All Rights Reserved.</p>
     </div>
+    <dialog class="modal">
+        <div class="modal-title">
+            <h2>ADD BOOKS</h2>
+            <button class="closeModal">
+                <img class="small-icon" src="./images/cancel.png" alt="Cancel-icon">
+            </button>
+        </div>
+        <form class="dialogForm" action="" method="dialog">
+            <div class="bookTitle">
+                <label for="bookName">Title</label>
+                <input type="text" name="bookName" id="bookName" placeholder="Book Title">
+            </div>
+            <div class="bookAuthor">
+                <label for="bookWriter">Author</label>
+                <input type="text" name="bookWriter" id="bookWriter" placeholder="Book Author">
+            </div>
+            <div class="bookPages">
+                <label for="pages">NO Of Pages</label>
+                <input type="number" name="pages" id="pages" placeholder="Book pages">
+            </div>
+            <fieldset class="status">
+                <legend>Select One of this</legend>
+                <input type="radio" name="action" id="read" value="read">
+                <label for="read">Read</label>
+                <input type="radio" name="action" id="notRead" value="action">
+                <label for="notRead">Not Read</label>
+            </fieldset>
+            <div class="btn-wrap">
+                <button class="submitBtn">Add Item</button>
+            </div>
+        </form>
+    </dialog>
     <script src="script.js"></script>
 </body>
 </html>

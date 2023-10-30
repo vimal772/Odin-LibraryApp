@@ -27,7 +27,7 @@ body > * {
 
 .header {
     display: grid;
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 50px 1fr 50px;
     align-items: center;
 }
 
@@ -66,4 +66,78 @@ body > * {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.modal {
+    padding: 20px;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 0 0 1em rgba(255,255,255,0.5);
+
+/* Positioning center due to grid in body */
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin:auto;
+    top: -100px; 
+    width: 500px;
+}
+
+.closeModal .small-icon {
+    height: 20px;
+    width: auto;
+}
+
+.closeModal .small-icon:hover {
+    transition: 0.4s;
+    rotate: 90deg;
+}
+
+.modal-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bookTitle,
+.bookAuthor,
+.bookPages {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+
+}
+
+.dialogForm {
+    font-size: 1.1rem;
+}
+
+.bookTitle > input,
+.bookAuthor > input,
+.bookPages > input{
+    height: 25px;
+    width: 250px;
+    padding-left: 10px;
+    border: 0px;
+    outline: none;
+    border-bottom: 1px solid;
+}
+
+.btn-wrap {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.submitBtn {
+    font-size: 1rem;
+    height: 40px;
+    width: 100px;
+}
+
+.status {
+    padding: 5px 40px;
+}
+
+.modal::backdrop {
+    background-color: rgba(0,0,0,0.3);
 }

@@ -1,9 +1,5 @@
-const addItem = document.querySelector('.addItem');
+// const addItem = document.querySelector('.addItem');
 const collectionBooks = [];
-
-addItem.addEventListener('click',() => {
-    console.log("hello");
-});
 
 // This is a Constructor for adding books
 function Book(title,author,pages,isRead) {
@@ -19,3 +15,18 @@ function Book(title,author,pages,isRead) {
 function pushObject(){
 
 }
+
+
+//dialog toggle code below
+const addItem = document.querySelector('.addItem');
+const cancelBtn = document.querySelector('.closeModal');
+const addBook = document.querySelector('.submitBtn');
+const modal = document.querySelector('.modal');
+
+addItem.addEventListener('click', () => {
+    modal.showModal();
+})
+
+cancelBtn.addEventListener('click',() => {
+    modal.close();
+})
