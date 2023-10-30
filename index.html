@@ -12,10 +12,12 @@
         <h1>LIBRARAY APP</h1>
         <img class="small-icon" src="./images/profile.png" alt="profile">
     </div>
-    <div class="main"></div>
+    <div class="main">
+    </div>
     <div class="iucludeItems">
         <div class="bookCount">
             <p>BOOK COUNT :</p>
+            <p class="count">0</p>
         </div>
         <button class="addItem">
             <img src="./images/plus.png" alt="plus-icon" class="small-icon">
@@ -36,7 +38,7 @@
         <form class="dialogForm" action="" method="dialog">
             <div class="bookTitle">
                 <label for="bookName">Title</label>
-                <input type="text" name="bookName" id="bookName" placeholder="Book Title">
+                <input type="text" name="bookName" id="bookName" placeholder="Book Title" autofocus>
             </div>
             <div class="bookAuthor">
                 <label for="bookWriter">Author</label>
@@ -48,9 +50,9 @@
             </div>
             <fieldset class="status">
                 <legend>Select One of this</legend>
-                <input type="radio" name="action" id="read" value="read">
+                <input type="radio" name="isRead" id="read" value="Read">
                 <label for="read">Read</label>
-                <input type="radio" name="action" id="notRead" value="action">
+                <input type="radio" name="isRead" id="notRead" checked value="Not Raed">
                 <label for="notRead">Not Read</label>
             </fieldset>
             <div class="btn-wrap">
