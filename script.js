@@ -83,11 +83,15 @@ function addBookCard(title,author,pages,isRead) {
     noOfPage.textContent = pages
     const readed = document.createElement('p');
     readed.textContent = isRead;
+    const removeBtn = document.createElement('button');
+    removeBtn.classList.add('remove-btn');
+    removeBtn.textContent = "Delete";
 
     bookCard.appendChild(heading);
     bookCard.appendChild(writer);
     bookCard.appendChild(noOfPage);
     bookCard.appendChild(readed);
+    bookCard.appendChild(removeBtn);
 
     const main = document.querySelector('.main');
     main.appendChild(bookCard);
