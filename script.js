@@ -1,5 +1,6 @@
 // const addItem = document.querySelector('.addItem');
 const collectionBooks = [];
+let     newArr = [];
 
 // This is a Constructor for adding books
 function Book(title,author,pages,isRead) {
@@ -51,9 +52,23 @@ submitBtn.addEventListener('click', ()=> {
     const page = document.querySelector('#pages').value;
     const isRead = document.querySelector('input[name="isRead"]:checked').getAttribute("value");
     
-    pushObject(bookTitle,bookAuthor,page,isRead);
-    addBookCard(bookTitle,bookAuthor,page,isRead);
-    countBooks();
+    if(bookTitle){
+        if(bookAuthor){
+            if(page){
+                pushObject(bookTitle,bookAuthor,page,isRead);
+                addBookCard(bookTitle,bookAuthor,page,isRead);
+                countBooks();
+
+                storeInLocaleStorage();
+            }else{
+                return;
+            }
+        }else{
+            return;
+        }
+    }else{
+        return;
+    }
 })
 
 function addBookCard(title,author,pages,isRead) {
@@ -83,3 +98,38 @@ function countBooks() {
     const para = document.querySelector('.count');
     para.textContent = length;
 }
+
+const myForm = document.querySelector('.dialogForm');
+
+myForm.addEventListener('submit',(e) => {
+    myForm.reset();
+    modal.close();
+    e.preventDefault();
+})
+
+
+// storing and retriving data in local storage
+function storeInLocaleStorage() {
+    const arrayString = JSON.stringify(collectionBooks);
+    localStorage.setItem("booksArr",arrayString);
+}
+
+function retriveArray() {
+    const arrayString = localStorage.getItem("booksArr");
+    if(arrayString === null){
+        return;
+    }else{
+        newArr = JSON.parse(arrayString);
+        newArr = Array.from(newArr);
+        newArr.forEach(arr => {
+            collectionBooks.push(arr);
+            addBookCard(arr.title,arr.author,arr.pages,arr.isRead);             
+        })
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded',() => {
+    retriveArray();
+    countBooks();
+});
