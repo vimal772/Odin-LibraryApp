@@ -74,26 +74,31 @@ submitBtn.addEventListener('click', ()=> {
 function addBookCard(title,author,pages,isRead) {
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
-
+    const div = document.createElement('div');
+    div.classList.add('card-container');
     const heading = document.createElement('h2');
     heading.textContent = title;
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = "DELETE";
+    deleteBtn.classList.add('deleteBtn');
+    div.appendChild(heading);
+    div.appendChild(deleteBtn);
     const writer = document.createElement('p');
     writer.textContent = author;
     const noOfPage = document.createElement('p');
     noOfPage.textContent = pages
     const readed = document.createElement('p');
     readed.textContent = isRead;
-    const removeBtn = document.createElement('button');
-    removeBtn.classList.add('remove-btn');
-    removeBtn.textContent = "Delete";
 
-    bookCard.appendChild(heading);
+    bookCard.appendChild(div);
     bookCard.appendChild(writer);
     bookCard.appendChild(noOfPage);
     bookCard.appendChild(readed);
-    bookCard.appendChild(removeBtn);
 
     const main = document.querySelector('.main');
+    deleteBtn.addEventListener("click",()=> {
+        bookCard.remove();
+    })
     main.appendChild(bookCard);
 }
 
