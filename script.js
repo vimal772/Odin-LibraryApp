@@ -3,13 +3,26 @@ const collectionBooks = [];
 let     newArr = [];
 
 // This is a Constructor for adding books
-function Book(title,author,pages,isRead) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.isRead = isRead
-    this.info = function() {
-        return (`${title} By ${author}, ${pages} pages, ${isRead} yet`);
+// function Book(title,author,pages,isRead) {
+//     this.title = title
+//     this.author = author
+//     this.pages = pages
+//     this.isRead = isRead
+//     this.info = function() {
+//         return (`${title} By ${author}, ${pages} pages, ${isRead} yet`);
+//     }
+// }
+
+class Book {
+    constructor(title,author,pages,isRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead; 
+    }
+
+    info() {
+        return (`${this.title} By ${this.author}, ${this.pages}, ${this.isRead} Yet`)
     }
 }
 
