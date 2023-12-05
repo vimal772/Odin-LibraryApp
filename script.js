@@ -1,6 +1,7 @@
 // const addItem = document.querySelector('.addItem');
 const collectionBooks = [];
 let     newArr = [];
+let isLoged = false;
 
 // This is a Constructor for adding books
 // function Book(title,author,pages,isRead) {
@@ -38,7 +39,11 @@ const addBook = document.querySelector('.submitBtn');
 const modal = document.querySelector('.modal');
 
 addItem.addEventListener('click', () => {
-    modal.showModal();
+    if(!isLoged){
+        loginModal.showModal();
+    }else{
+        modal.showModal();
+    }
 })
 
 cancelBtn.addEventListener('click',() => {
@@ -159,12 +164,63 @@ document.addEventListener('DOMContentLoaded',() => {
 
 const icon = document.querySelector('.header > .login-icon');
 const loginModal = document.querySelector('.modal-login');
-const closeBtn = document.querySelector('.btn-close');  
+const closeBtn = document.querySelector('.btn-close');
+const form = document.querySelector('.modal-form');  
 
 icon.addEventListener('click',()=> {
     loginModal.showModal();
+
 })
 
 closeBtn.addEventListener('click',()=> {
     loginModal.close();
+})
+
+const submitForm = document.querySelector('.btn-submit');
+
+submitForm.addEventListener('click',(event)=> {
+    event.preventDefault()
+    document.querySelector('.showMsg').textContent = ''
+    checkFormValidity();
+})
+
+function checkFormValidity() {
+    if(!form.checkValidity()){
+        document.querySelector('.showMsg').textContent = "Please Fill the Above Form";
+        form.reportValidity();
+    }else {
+        isLoged = true;
+        loginModal.close()
+    }
+}
+
+form.addEventListener('input',(event)=> {
+    const target = event.target;
+    const validity = target.validity
+    console.log(validity);
+    
+    if(target.id === 'email' ){
+        const nextSpan = document.querySelector("#myModal > form > div:nth-child(1) > span")
+        if(validity.valueMissing)   nextSpan.textContent = 'Email is required';
+        nextSpan.textContent = ''
+    }
+    if(target.id === 'country' ){
+        const nextSpan = document.querySelector("#myModal > form > div:nth-child(2) > span")
+        if(validity.valueMissing)   nextSpan.textContent = 'Enter Valid Country';
+        if(validity.tooShort) nextSpan.textContent = 'Type Fullname of the Country'
+        if(validity.tooLong) nextSpan.textContent = 'Use shortName of the Country'
+        else nextSpan.textContent = ''
+    }
+    if(target.id === 'zip' ){
+        const nextSpan = document.querySelector("#myModal > form > div:nth-child(3) > span")
+        const isValid = /^\d{3}-\d{3}$/.test(target.value);
+        if(validity.valueMissing)  {
+            nextSpan.textContent = 'Zip code Must be 6 digit';  
+        } 
+        if(!isValid) {
+            nextSpan.textContent = 'follow this format XXX-XXX'
+        }else {
+            nextSpan.textContent = ''
+        }
+    }
 })
