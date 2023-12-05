@@ -10,12 +10,12 @@
     <div class="header">
         <img class="small-icon" src="./images/books.png" alt="books">
         <h1>LIBRARAY APP</h1>
-        <img class="small-icon" src="./images/profile.png" alt="profile">
+        <img class="small-icon login-icon" src="./images/profile.png" alt="profile">
     </div>
     
 <!-- Modal -->
-    <dialog id="myModal" class="modal">
-        <div class="modal-form">
+    <dialog id="myModal" class="modal-login">
+        <form class="modal-form">
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" class="input-field" required>
@@ -40,10 +40,11 @@
             <label for="confirmPassword">Confirm Password:</label>
             <input type="password" id="confirmPassword" name="confirmPassword" class="input-field" required>
         </div>
-    
-        <button class="btn-close">Close</button>
-        <button class="btn-submit">Submit</button>
+        <div class="form-group">
+            <button class="btn-close">Close</button>
+            <button class="btn-submit">Submit</button>
         </div>
+        </form>
     </dialog>
     <div class="main">
     </div>

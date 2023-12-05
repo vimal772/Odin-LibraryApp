@@ -155,3 +155,16 @@ document.addEventListener('DOMContentLoaded',() => {
     retriveArray();
     countBooks();
 });
+
+
+const icon = document.querySelector('.header > .login-icon');
+const loginModal = document.querySelector('.modal-login');
+const closeBtn = document.querySelector('.btn-close');  
+
+icon.addEventListener('click',()=> {
+    loginModal.showModal();
+})
+
+closeBtn.addEventListener('click',()=> {
+    loginModal.close();
+})

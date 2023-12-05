@@ -205,3 +205,71 @@ body > * {
 .deleteBtn:hover {
     background-color: rgba(255,255,255,0.5);
 }
+
+ .modal-login {
+    position: absolute; 
+    left: 78%; 
+    right: 0; 
+    margin:auto;
+    top: -23em; 
+    width: 400px;
+    height: 400px;
+
+    border: 0;
+    font-size: 1.1rem;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 2em rgba(255,255,255,0.7);
+}
+
+.form-group > *{
+    margin: 10px;
+}
+.form-group {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: end;
+} 
+
+.login-icon {
+    cursor: pointer;
+}
+
+input:invalid {
+    /* border: 1px solid red; */
+}
+
+input {
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid;
+    font-size: 1.1rem;
+}
+
+.form-group > button {
+    justify-self: stretch;
+    height: 40px;
+    width: auto;
+    outline: none;
+    border: 0;
+}
+
+.btn-close{
+    grid-row: 2;
+    grid-column: 1/-1;
+}
+
+.btn-submit {
+    grid-column: 1/-1;
+}
+.btn-close:hover {
+    border: 1px solid rgb(221, 73, 73);
+}
+.btn-submit:hover {
+    border: 1px solid rgb(72, 207, 72);
+}
+
+input:hover,
+input:focus {
+    border-bottom: 1px solid rgb(226, 183, 104);
+}
